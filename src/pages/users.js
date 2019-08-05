@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'antd'
+import { Table } from 'antd'
 import { connect } from 'dva'
 
 const namespace = 'users'
@@ -23,19 +23,28 @@ class Users extends Component {
   componentDidMount() {
     this.props.onDidMount()
   }
+  columns = [
+    {
+      title: '用户名',
+      dataIndex: 'name',
+    }, {
+      title: '邮箱',
+      dataIndex: 'email',
+    }, {
+      title: '电话',
+      dataIndex: 'phone',
+    }, {
+      title: '操作'
+    }
+  ]
   render() {
     const { userList } = this.props
     return (
       <div>
-        {
-          userList.map(user => {
-            return (
-              <Card key={user.id}>
-                {user.username}
-              </Card>
-            )
-          })
-        }
+        <Table
+          dataSource={userList}
+          columns={this.columns}
+          rowKey={record => record.id}/>
       </div>
     )
   }

@@ -40,7 +40,7 @@ class BasicLayout extends Component {
                 <Item key="3"><Link to="/dashboard/workplace">工作台</Link></Item>
             </SubMenu>
             <Item key="4">
-              <Icon type="pie-chart" />
+              <Icon type="team" />
               <Link to="/users"><span>用户管理</span></Link>
             </Item>
           </Menu>
